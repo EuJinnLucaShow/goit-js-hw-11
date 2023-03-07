@@ -61,14 +61,7 @@ p {
   cursor: pointer;
 }
 
-.search-form button:hover,
-.search-form button:focus {
-  // box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%);
-  background-color: rgba(224, 224, 224, 0.5);
-  transition: all 0.3s;
-}
-
-.load-more:hover {
+.search-form button:hover {
   // box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%);
   background-color: rgba(224, 224, 224, 0.5);
   transition: all 0.3s;
@@ -76,17 +69,6 @@ p {
 
 .load-more.is-hidden {
   display: none;
-}
-
-.load-more {
-  display: block;
-  margin: 25px auto 0 auto;
-  padding: 8px 20px;
-  border: none;
-  border-radius: 5px;
-  background-color: #fff;
-  box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%);
-  cursor: pointer;
 }
 
 .container {
