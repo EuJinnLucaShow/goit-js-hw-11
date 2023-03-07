@@ -10,7 +10,6 @@ body {
   background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
-  height: 100vh;
 }
 
 @keyframes gradient {
@@ -44,7 +43,6 @@ p {
   border-radius: 5px 0 0 5px;
   border: none;
   outline: none;
-  background-color: rgb(248, 248, 248);
   padding: 8px 10px;
 }
 
@@ -53,14 +51,20 @@ p {
   justify-content: center;
   align-items: center;
   border: none;
-  background-color: rgb(200, 200, 200);
+  background-color: #fff;
   border-radius: 0 5px 5px 0;
+  padding: 8px 20px;
   cursor: pointer;
 }
 
 .search-form button:hover,
 .search-form button:focus {
-  background-color: rgb(180, 180, 180);
+  background-color: rgba(224, 224, 224, 0.5);
+  transition: all 0.3s;
+}
+
+.load-more:hover {
+  background-color: rgba(224, 224, 224, 0.5);
   transition: all 0.3s;
 }
 
@@ -74,14 +78,15 @@ p {
   padding: 8px 20px;
   border: none;
   border-radius: 5px;
-  background-color: #fbfbfb;
+  background-color: #fff;
   box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 2px 6px 2px rgba(60, 64, 67, 0.15);
   cursor: pointer;
 }
 
-.gallery {
+.container {
   padding-left: 15px;
   padding-right: 15px;
+  padding-bottom: 20px;
 }
 
 .gallery,
