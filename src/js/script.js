@@ -106,11 +106,13 @@ function onSearchForm(e) {
 
 function onloadMore() {
   page += 1;
-  simpleLightBox.refresh();
+  simpleLightBox.destroy();
+  // simpleLightBox.refresh();
 
   fetchImages(query, page, perPage)
     .then(data => {
       renderGallery(data.hits);
+      simpleLightBox = new SimpleLightbox('.gallery a').refresh();
 
       const totalPages = Math.ceil(data.totalHits / perPage);
 
