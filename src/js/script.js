@@ -1,10 +1,7 @@
 import Notiflix from 'notiflix';
-import axios from 'axios';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
-
-// Збереження ключа API в окремому файлі змінних
-import { KEY } from './api-key.js';
+import { fetchImages } from './fetchImages';
 
 const searchForm = document.getElementById('search-form');
 const gallery = document.querySelector('.gallery');
@@ -15,25 +12,6 @@ let simpleLightBox;
 const perPage = 40;
 
 searchForm.addEventListener('submit', onSearchForm);
-
-// Перевірка помилок під час виконання запиту до серверу
-axios.defaults.baseURL = 'https://pixabay.com/api/';
-axios.interceptors.response.use(
-  response => {
-    return response;
-  },
-  error => {
-    Notiflix.Notify.failure('Something went wrong. Please try again later.');
-    return Promise.reject(error);
-  },
-);
-
-async function fetchImages(query, page, perPage) {
-  const response = await axios.get(
-    `?key=${KEY}&q=${query}&image_type=photo&orientation=horizontal&safesearch=true&page=${page}&per_page=${perPage}`,
-  );
-  return response.data;
-}
 
 function renderGallery(images) {
   // Перевірка чи існує галерея перед вставкою даних
@@ -83,7 +61,6 @@ function renderGallery(images) {
 
 function onSearchForm(e) {
   e.preventDefault();
-  window.scrollTo({ top: 0 });
   page = 1;
   query = e.currentTarget.elements.searchQuery.value.trim();
   gallery.innerHTML = '';
@@ -153,7 +130,7 @@ window.addEventListener('scroll', showLoadMorePage);
 
 // кнопка “вгору”->
 arrowTop.onclick = function () {
-  window.scrollTo(scrollX, 0);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
   // після scrollTo відбудеться подія "scroll", тому стрілка автоматично сховається
 };
 
